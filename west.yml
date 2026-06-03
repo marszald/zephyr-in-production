@@ -12,4 +12,5 @@ manifest:
           - mcuboot
           - mbedtls
           - tf-psa-crypto
+          - zcbor
         path-prefix: deps
