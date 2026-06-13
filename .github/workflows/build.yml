@@ -37,17 +37,18 @@ jobs:
       - name: Build (production target, signed)
         working-directory: packt-training
         run: |
-          # TODO 1 - build
+          west build -b training app --sysbuild -d build/prod --pristine
 
       - name: Verify signature
         working-directory: packt-training
         run: |
-          # TODO 2 - verify (fail the build if signing didn't happen)
+          imgtool verify -k keys/my-key.pem build/prod/app/zephyr/zephyr.signed.bin
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: firmware-${{ github.sha }}
           path: |
-            # TODO 3 - upload
+            - zephyr-in-production/build/prod/mcuboot/zephyr/zephyr.bin
+            - zephyr-in-production/build/prod/app/zephyr/zephyr.signed.bin
           retention-days: 30

@@ -1,0 +1,6 @@
+# Copyright 2024 NXP
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_TRAINING
+	select SOC_MCXA156 if BOARD_TRAINING
+	select SOC_PART_NUMBER_MCXA156VLL
