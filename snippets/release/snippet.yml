@@ -1,0 +1,4 @@
+name: release
+append:
+  EXTRA_CONF_FILE: release.conf
+  EXTRA_DTC_OVERLAY_FILE: release.overlay
